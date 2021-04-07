@@ -9,7 +9,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/markoczy/crawler/cli"
+	"github.com/markoczy/Serizao/cli"
 )
 
 var (
