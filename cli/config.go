@@ -10,6 +10,8 @@ type CrawlerConfig interface {
 	// General Config
 	Test() bool
 	Urls() []string
+	Url()  string
+	StayDomain() bool
 	Download() bool
 	Depth() int
 	Timeout() time.Duration
@@ -33,6 +35,7 @@ type CrawlerConfig interface {
 
 type crawlerConfig struct {
 	test                 bool
+	url					 string
 	urls                 []string
 	download             bool
 	depth                int
@@ -57,6 +60,12 @@ func (cfg *crawlerConfig) Test() bool {
 	return cfg.test
 }
 
+func (cfg *crawlerConfig) StayDomain() bool {
+	return cfg.stayDomain
+}
+func (cfg *crawlerConfig) Url() []string {
+	return cfg.url
+}
 func (cfg *crawlerConfig) Urls() []string {
 	return cfg.urls
 }
