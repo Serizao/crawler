@@ -32,7 +32,7 @@ func ParseFlags() CrawlerConfig {
 	cfg := crawlerConfig{}
 
 	testPtr := flag.Bool("test", false, "tests patterns and outputs download file name")
-	stayDomain := flag.Bool("stayDomain", true, "Not follow link which go on other domain")
+	stayDomain := flag.Bool("stayDomain", false, "Not follow link which go on other domain")
 	urlPtr := flag.String("url", unset, "the initial url, cannot be unset, prefix http or https is required, supports permutations in square brackets like '[1-100]' or '[a,b,c]', can also refer a file with prefix '@'")
 	downloadPtr := flag.Bool("download", false, "switches to download mode")
 	timeoutPtr := flag.Int64("timeout", 60000, "general timeout in millis when loading a webpage")
