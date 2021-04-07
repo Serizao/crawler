@@ -38,6 +38,7 @@ func ParseFlags() CrawlerConfig {
 	timeoutPtr := flag.Int64("timeout", 60000, "general timeout in millis when loading a webpage")
 	extraWaittimePtr := flag.Int64("extra-waittime", 0, "additional waittime after load")
 	depthPtr := flag.Int("depth", 0, "max depth for link crawler")
+	thread := flag.Int("thread", 1, "max depth for link crawler")
 	flag.Var(&headerFlags, "header", "headers to set, multiple allowed, prefix '@' to adress a file")
 	authPtr := flag.String("auth", unset, "basic auth header to set, auth must be provided in format 'user:password'")
 	userAgentPtr := flag.String("user-agent", unset, "user agent to set, defaults to chrome browser if unset, set 'none' to avoid overriding user agent")
@@ -57,6 +58,7 @@ func ParseFlags() CrawlerConfig {
 
 	url := *urlPtr
 	cfg.url = *urlPtr
+	cfg.thread = *thread
 	cfg.test = *testPtr
 	cfg.download = *downloadPtr
 	cfg.depth = *depthPtr
