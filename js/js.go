@@ -28,6 +28,10 @@ function getLinks() {
         } else if (el.action && typeof el.action === 'string') {
             var absolute = absolutePath(el.src);
             array.push(absolute);
+        } else if (el.type && typeof el.type === 'string' && el.type === 'hidden' && el.name ) {
+		if(el.value && el.value !=""){
+            		array.push(window.location.href+"?"+el.name+"=xxxx");
+		}
         }
     }
     return array;
