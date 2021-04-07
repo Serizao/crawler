@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/markoczy/crawler/perm"
+	"github.com/markoczy/Serizao/perm"
 )
 
 const (
