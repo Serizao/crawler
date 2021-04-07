@@ -59,6 +59,7 @@ func ParseFlags() CrawlerConfig {
 	cfg.test = *testPtr
 	cfg.download = *downloadPtr
 	cfg.depth = *depthPtr
+	cfg.stayDomain = *stayDomain
 	cfg.include = parseRegex(*includePtr, "include")
 	cfg.exclude = parseRegex(*excludePtr, "exclude")
 	cfg.followInclude = parseRegex(*followIncludePtr, "follow-include")
