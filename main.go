@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	netUrl"net/url"
 	"sort"
 	"strings"
 	"time"
@@ -107,6 +108,14 @@ func getLinksRecursive(cfg cli.CrawlerConfig, url string, depth int, visited *ty
 	if !visited.ShouldVisit(url, depth) {
 		log.Info("Already visited '%s'", url)
 		return ret
+	}
+	if cfg.StayDomain() {
+		baseHost, _ := netUrl.Parse(cfg.Url())
+		currentHost, _ := netUrl.Parse(cfg.Url())
+		if baseHost.Hostname() != currentHost.Hostname()  {
+			log.Info("Out of scope URL '%s'", url)
+			return ret
+		}
 	}
 
 	log.Info("Scanning url '%s'", url)
