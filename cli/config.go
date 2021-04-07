@@ -14,6 +14,7 @@ type CrawlerConfig interface {
 	StayDomain() bool
 	Download() bool
 	Depth() int
+	Thread() int
 	Timeout() time.Duration
 	ExtraWaittime() time.Duration
 	Headers() map[string]string
@@ -39,6 +40,7 @@ type crawlerConfig struct {
 	urls                 []string
 	download             bool
 	depth                int
+	thread               int
 	stayDomain           bool
 	timeout              time.Duration
 	extraWaittime        time.Duration
@@ -62,6 +64,9 @@ func (cfg *crawlerConfig) Test() bool {
 
 func (cfg *crawlerConfig) StayDomain() bool {
 	return cfg.stayDomain
+}
+func (cfg *crawlerConfig) Thread() int {
+	return cfg.thread
 }
 func (cfg *crawlerConfig) Url() string {
 	return cfg.url
