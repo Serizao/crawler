@@ -30,7 +30,8 @@ function getLinks() {
             array.push(absolute);
         } else if (el.type && typeof el.type === 'string' && el.type === 'hidden' && el.name ) {
 		if(el.value && el.value !=""){
-            		array.push(window.location.href+"?"+el.name+"=xxxx");
+			if(window.location.href.includes('?')) array.push(window.location.href+"&"+el.name+"=xxxx");
+			else array.push(window.location.href+"?"+el.name+"=xxxx");
 		}
         }
     }
