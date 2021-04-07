@@ -28,11 +28,14 @@ function getLinks() {
         } else if (el.action && typeof el.action === 'string') {
             var absolute = absolutePath(el.src);
             array.push(absolute);
-        } else if (el.type && typeof el.type === 'string' && el.type === 'hidden' && el.name ) {
-		if(el.value && el.value !=""){
-			if(window.location.href.includes('?')) array.push(window.location.href+"&"+el.name+"=xxxx");
-			else array.push(window.location.href+"?"+el.name+"=xxxx");
-		}
+        } else if (el.type && typeof el.type === 'string' && el.type === 'hidden' && el.getAttribute("name") != '' && el.getAttribute("name") != null ) {
+                if(el.value && el.value !=""){
+                        if(window.location.href.includes('?')) array.push(window.location.href+"&"+el.getAttribute("name")+"="+el.value);
+                        else array.push(window.location.href+"?"+el.getAttribute("name")+"="+el.value);
+                } else {
+                    if(window.location.href.includes('?')) array.push(window.location.href+"&"+el.name+"=xxxx");
+                    else array.push(window.location.href+"?"+el.name+"=xxxx");
+                }
         }
     }
     return array;
