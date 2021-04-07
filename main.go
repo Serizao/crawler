@@ -12,11 +12,11 @@ import (
 	"github.com/ysmood/gson"
 
 	// "context"
-	"github.com/markoczy/crawler/cli"
-	"github.com/markoczy/crawler/httpfunc"
-	"github.com/markoczy/crawler/js"
-	"github.com/markoczy/crawler/logger"
-	"github.com/markoczy/crawler/types"
+	"github.com/Serizao/crawler/cli"
+	"github.com/Serizao/crawler/httpfunc"
+	"github.com/Serizao/crawler/js"
+	"github.com/Serizao/crawler/logger"
+	"github.com/Serizao/crawler/types"
 )
 
 var (
