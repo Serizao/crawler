@@ -63,7 +63,7 @@ func (cfg *crawlerConfig) Test() bool {
 func (cfg *crawlerConfig) StayDomain() bool {
 	return cfg.stayDomain
 }
-func (cfg *crawlerConfig) Url() []string {
+func (cfg *crawlerConfig) Url() string {
 	return cfg.url
 }
 func (cfg *crawlerConfig) Urls() []string {
