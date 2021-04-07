@@ -10,8 +10,8 @@ import (
 	"time"
 
 	"github.com/go-rod/rod"
-	"github.com/markoczy/crawler/cli"
-	"github.com/markoczy/crawler/logger"
+	"github.com/Serizao/crawler/cli"
+	"github.com/Serizao/crawler/logger"
 )
 
 func TestMain(m *testing.M) {
