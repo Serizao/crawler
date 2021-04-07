@@ -56,6 +56,7 @@ func ParseFlags() CrawlerConfig {
 	flag.Parse()
 
 	url := *urlPtr
+	cfg.url = *urlPtr
 	cfg.test = *testPtr
 	cfg.download = *downloadPtr
 	cfg.depth = *depthPtr
