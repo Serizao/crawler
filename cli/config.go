@@ -36,6 +36,7 @@ type crawlerConfig struct {
 	urls                 []string
 	download             bool
 	depth                int
+	stayDomain           bool
 	timeout              time.Duration
 	extraWaittime        time.Duration
 	headers              map[string]string
