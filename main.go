@@ -197,7 +197,6 @@ func getLinks(cfg cli.CrawlerConfig, url string) (ret []string, err error) {
 	// Get links
 	log.Debug("Running getLinks JS func")
 	resp = page.MustEval(js.GetLinks)
-	fmt.Println(resp)
 	log.Debug("Parsing JSON")
 	for _, link := range resp.Arr() {
 		
