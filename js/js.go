@@ -25,6 +25,9 @@ function getLinks() {
         } else if (el.src && typeof el.src === 'string') {
             var absolute = absolutePath(el.src);
             array.push(absolute);
+        } else if (el.action && typeof el.action === 'string') {
+            var absolute = absolutePath(el.src);
+            array.push(absolute);
         }
     }
     return array;
