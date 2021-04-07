@@ -111,9 +111,9 @@ func getLinksRecursive(cfg cli.CrawlerConfig, url string, depth int, visited *ty
 	}
 	if cfg.StayDomain() {
 		baseHost, _ := netUrl.Parse(cfg.Url())
-		currentHost, _ := netUrl.Parse(cfg.Url())
+		currentHost, _ := netUrl.Parse(url)
 		if baseHost.Hostname() != currentHost.Hostname()  {
-			log.Info("Out of scope URL '%s'", url)
+			log.Info("Out of scope URL '%s' ", url)
 			return ret
 		}
 	}
@@ -182,6 +182,7 @@ func getLinks(cfg cli.CrawlerConfig, url string) (ret []string, err error) {
 	}()
 
 	// Navigate and load
+
 	log.Debug("Opening page")
 	page = browser.MustPage("")
 	log.Debug("Navigating")
@@ -196,8 +197,10 @@ func getLinks(cfg cli.CrawlerConfig, url string) (ret []string, err error) {
 	// Get links
 	log.Debug("Running getLinks JS func")
 	resp = page.MustEval(js.GetLinks)
+	fmt.Println(resp)
 	log.Debug("Parsing JSON")
 	for _, link := range resp.Arr() {
+		
 		if cfg.StayDomain() {
 			baseHost, _ := netUrl.Parse(cfg.Url())
 			currentHost, _ := netUrl.Parse(link.String())
