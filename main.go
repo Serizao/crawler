@@ -198,7 +198,15 @@ func getLinks(cfg cli.CrawlerConfig, url string) (ret []string, err error) {
 	resp = page.MustEval(js.GetLinks)
 	log.Debug("Parsing JSON")
 	for _, link := range resp.Arr() {
-		ret = append(ret, link.String())
+		if cfg.StayDomain() {
+			baseHost, _ := netUrl.Parse(cfg.Url())
+			currentHost, _ := netUrl.Parse(link.String())
+			if baseHost.Hostname() == currentHost.Hostname()  {
+				ret = append(ret, link.String())
+			}
+		} else {
+			ret = append(ret, link.String())
+		}
 	}
 	return
 }
